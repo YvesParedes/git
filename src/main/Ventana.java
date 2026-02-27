@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -24,7 +26,13 @@ public class Ventana extends JFrame {
 		this.setTitle("Login y Registro");		
 		this.setLayout(null);		
 		this.getContentPane().setBackground(Color.BLACK);
+		this.setVisible(true);
+		this.user();
+		this.repaint();
 		
+	}
+	
+	public void login() {
 		JPanel login_container = new JPanel();
 		login_container.setLayout(null);
 		login_container.setSize(400, 520);
@@ -77,12 +85,24 @@ public class Ventana extends JFrame {
 		access_btn.setFont(new Font("Arial", Font.ITALIC, 18));
 		login_container.add(access_btn);
 
+		
+	}
+	
+	public void registro() {
+		
 		JPanel rgs_container = new JPanel();
 		rgs_container.setBounds(520, 50, 400, 520);
 		rgs_container.setBackground(Color.GREEN);
 		rgs_container.setLayout(null);
 		this.add(rgs_container);
-
+		
+		
+		JButton register_btn = new JButton("Crear cuenta");
+		register_btn.setBounds(50, 465, 300, 40);
+		register_btn.setBackground(Color.LIGHT_GRAY);
+		register_btn.setFont(new Font("Arial", Font.PLAIN, 18));
+		rgs_container.add(register_btn);
+		
 		JLabel bio_tag = new JLabel("REGISTRO");
 		bio_tag.setBounds(50, 20, 300, 50);
 		bio_tag.setHorizontalAlignment(JLabel.CENTER);
@@ -115,7 +135,7 @@ public class Ventana extends JFrame {
 		rgs_container.add(bio_text);
 
 		JLabel pref_label = new JLabel("PREFERENCIAS");
-		pref_label.setBounds(50, 290, 300, 25);
+		pref_label.setBounds(50, 290, 300, 25); 
 		pref_label.setHorizontalAlignment(JLabel.CENTER);
 		pref_label.setFont(new Font("Arial", Font.PLAIN, 14));
 		rgs_container.add(pref_label);
@@ -165,14 +185,78 @@ public class Ventana extends JFrame {
 		colonias_combo.setBounds(50, 430, 300, 30);
 		colonias_combo.setFont(new Font("Arial", Font.PLAIN, 14));
 		rgs_container.add(colonias_combo);
-
-		JButton register_btn = new JButton("Crear cuenta");
-		register_btn.setBounds(50, 465, 300, 40);
-		register_btn.setBackground(Color.LIGHT_GRAY);
-		register_btn.setFont(new Font("Arial", Font.PLAIN, 18));
-		rgs_container.add(register_btn);
 		
-		this.setVisible(true);
-		this.repaint();
+		
+	}
+	
+	public void user() {
+		JPanel user_container = new JPanel();
+		user_container.setSize(900, 570);
+		user_container.setLocation(50, 50);
+		user_container.setBackground(Color.pink);
+		user_container.setLayout(null);
+		this.add(user_container);
+		
+		JLabel tag_title = new JLabel("USUARIOS");
+		tag_title.setSize(300, 40);
+		tag_title.setLocation(270, 30);
+		tag_title.setFont(new Font("Segoe Script", Font.BOLD, 26));
+		tag_title.setHorizontalAlignment(SwingConstants.CENTER);
+		user_container.add(tag_title);
+		
+		JLabel tag_users = new JLabel("USUARIOS");
+		tag_users.setSize(200, 200);
+		tag_users.setLocation(90, 20);
+		tag_users.setFont(new Font("Segoe Script", Font.BOLD, 26));
+		tag_users.setHorizontalAlignment(SwingConstants.CENTER);
+		user_container.add(tag_users);
+		
+		JLabel tag_number = new JLabel("11");
+		tag_number.setSize(200, 200);
+		tag_number.setLocation(90, 50);
+		tag_number.setFont(new Font("Segoe Script", Font.BOLD, 26));
+		tag_number.setHorizontalAlignment(SwingConstants.CENTER);
+		user_container.add(tag_number);
+		
+		JButton download_btn = new JButton("Descargar");
+		download_btn.setSize(120, 35);
+		download_btn.setLocation(550, 120);
+		download_btn.setFont(new Font("Arial", Font.ITALIC, 14));
+		user_container.add(download_btn);
+		
+		JButton add_btn = new JButton("Añadir");
+		add_btn.setSize(120, 35);
+		add_btn.setLocation(700, 120);
+		add_btn.setFont(new Font("Arial", Font.ITALIC, 14));
+		user_container.add(add_btn);
+		
+		
+		
+		String [] table_head = {"No. Control", "Nombre", "Apellidos", "Correo electronico", "Semestre", "Carrera", "Acciones"};
+		
+		Object[][] table_body = {
+				{"21210450", "Ana", "García López", "ana.garcia@instituto.edu.mx", "6", "Ingeniería en Sistemas", "Editar/Eliminar"},
+			    {"21210451", "Luis", "Martínez Ruiz", "luis.mtz@instituto.edu.mx", "4", "Licenciatura en Administración", "Editar/Eliminar"},
+			    {"21210452", "Carla", "Estrada Solís", "c.estrada@instituto.edu.mx", "8", "Ingeniería Industrial", "Editar/Eliminar"},
+			    {"21210453", "Jorge", "Pérez Gómez", "jorge.perez@instituto.edu.mx", "2", "Ingeniería Mecatrónica", "Editar/Eliminar"},
+			    {"21210454", "Sofía", "Hernández Vera", "sofia.hdez@instituto.edu.mx", "5", "Arquitectura", "Editar/Eliminar"},
+			    {"21210455", "Ricardo", "Mendoza Soto", "r.mendoza@instituto.edu.mx", "3", "Ingeniería Eléctrica", "Editar/Eliminar"},
+			    {"21210456", "Elena", "Torres Blanca", "e.torres@instituto.edu.mx", "7", "Ingeniería Química", "Editar/Eliminar"},
+			    {"21210457", "Mauricio", "Rivas Castro", "m.rivas@instituto.edu.mx", "1", "Ingeniería Civil", "Editar/Eliminar"},
+			    {"21210458", "Valeria", "Luna Parra", "v.luna@instituto.edu.mx", "9", "Ingeniería Biomédica", "Editar/Eliminar"},
+			    {"21210459", "Andrés", "Cano Duarte", "a.cano@instituto.edu.mx", "4", "Ingeniería Ambiental", "Editar/Eliminar"},
+			    {"21210460", "Beatriz", "Salas Peña", "b.salas@instituto.edu.mx", "2", "Licenciatura en Derecho", "Editar/Eliminar"}
+			};
+		
+		JTable students = new JTable(table_body,table_head);
+		
+		JScrollPane final_table = new JScrollPane(students);
+		final_table.setSize(700, 200);
+		final_table.setLocation(100, 175);
+		
+		user_container.add(final_table);
+		
+		
+		
 	}
 }
