@@ -8,6 +8,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -26,9 +29,45 @@ public class Ventana extends JFrame {
 		this.setTitle("Login y Registro");		
 		this.setLayout(null);		
 		this.getContentPane().setBackground(Color.BLACK);
+		
+		
+		JMenuBar barra = new JMenuBar();
+		this.setJMenuBar(barra);
+		
+		JMenu menu1 = new JMenu("Archivo");
+		barra.add(menu1);
+		
+		JMenu menu2 = new JMenu("Ayuda");
+		barra.add(menu2);
+		
+		JMenuItem opt1_mi = new JMenuItem("Abrir");
+		menu1.add(opt1_mi);
+		
+		JMenuItem opt2_mi = new JMenuItem("Nuevo");
+		menu1.add(opt2_mi);
+		
+		JMenuItem opt3_mi = new JMenuItem("Cerrar");
+		menu1.add(opt3_mi);
+		
+		menu1.addSeparator();
+		
+		JMenu menu3 = new JMenu("Guardar");
+		menu1.add(menu3);
+		
+		JMenuItem opt4_mi = new JMenuItem("Guardar");
+		menu3.add(opt4_mi);
+		
+		
+		JMenuItem opt5_mi = new JMenuItem("Guardar como");
+		menu3.add(opt5_mi);
+		
+		//this.user();
+		this.login();
+		//this.registro();
+		
 		this.setVisible(true);
-		this.user();
 		this.repaint();
+		
 		
 	}
 	
