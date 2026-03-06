@@ -297,7 +297,7 @@ public class Ventana extends JFrame {
 	public void calculadora() {
 		JPanel baseCalc = new JPanel();
 		baseCalc.setLayout(null);
-		baseCalc.setSize(400, 520);
+		baseCalc.setSize(400, 550);
 		baseCalc.setLocation(300, 50);
 		baseCalc.setBackground(Color.gray);
 		this.add(baseCalc);
@@ -313,8 +313,8 @@ public class Ventana extends JFrame {
 		
 		int cor_x = 10, cor_y = 80;
 		
-		for (int i = 0; i < 16; i++) {
-			String[] botones = {"CE","","","-","7","8","9","÷","4","5","6","X","1","2","3","+"};
+		for (int i = 0; i < 20; i++) {
+			String[] botones = {"CE","","","","7","8","9","÷","4","5","6","X","1","2","3","-","0",".","=","+"};
 			
 			JButton ce = new JButton(botones[i]);
 			ce.setSize(85, 85);
