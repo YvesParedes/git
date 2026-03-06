@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -70,9 +71,7 @@ public class Ventana extends JFrame {
 		JMenuItem opt5_mi = new JMenuItem("Guardar como");
 		menu3.add(opt5_mi);
 		
-		//this.user();
-		this.login();
-		//this.regsitro();
+		this.calculadora();
 		
 		this.setVisible(true);
 		this.repaint();
@@ -293,5 +292,43 @@ public class Ventana extends JFrame {
 		final_table.setLocation(100, 175);
 		
 		user_container.add(final_table);
+	}
+	
+	public void calculadora() {
+		JPanel baseCalc = new JPanel();
+		baseCalc.setLayout(null);
+		baseCalc.setSize(400, 520);
+		baseCalc.setLocation(300, 50);
+		baseCalc.setBackground(Color.gray);
+		this.add(baseCalc);
+		
+		JLabel field = new JLabel("180.00");
+		field.setSize(365, 60);
+		field.setLocation(10, 10);
+		field.setOpaque(true);
+		field.setBackground(Color.white);
+		field.setFont(new Font("Arial", Font.BOLD,22));
+		field.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+		baseCalc.add(field);
+		
+		int cor_x = 10, cor_y = 80;
+		
+		for (int i = 0; i < 16; i++) {
+			String[] botones = {"CE","","","-","7","8","9","÷","4","5","6","X","1","2","3","+"};
+			
+			JButton ce = new JButton(botones[i]);
+			ce.setSize(85, 85);
+			ce.setLocation(cor_x, cor_y);
+			
+			cor_x += 95;
+			baseCalc.add(ce);
+			
+			if ((i + 1) % 4 == 0) {
+	            cor_x = 10;
+	            cor_y += 95;
+			}
+		}
+	
+	
 	}
 }
